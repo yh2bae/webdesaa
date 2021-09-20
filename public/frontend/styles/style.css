@@ -1,0 +1,57 @@
+@media only screen and (max-width: 992px) {
+  .logo a {
+    display: none;
+  }
+}
+
+body {
+  height: 1000px;
+  background-color: #eaeaea;
+}
+
+.carousel-inner>.carousel-item>img {
+  /* width: 640px; */
+  height: 500px;
+}
+
+.card {
+  background-color: #ffff;
+}
+
+/* maps */
+.map-container-5 {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-container-5 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+
+.wa-image,
+.fb-image {
+  width: 10%;
+}
+
+.galeri-text a {
+  text-decoration: none;
+  color: black;
+
+}
+
+article {
+  background-color: white;
+  padding: 10px;
+}
+
+.perangkatDesaFoto img {
+  width: 50vh;
+  height: 50vh;
+}
