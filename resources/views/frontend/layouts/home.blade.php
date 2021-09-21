@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="{{ asset('upload/desa/'.$desa->logo) }}"/>
+  {{-- <link rel="icon" type="image/x-icon" href="{{ asset('upload/desa/'.$desa->logo) }}"/> --}}
 
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <!-- Bootstrap CSS -->
