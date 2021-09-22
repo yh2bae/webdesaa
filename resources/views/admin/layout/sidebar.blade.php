@@ -12,6 +12,7 @@
                     </div>
                 </a>
             </li>
+            
 
             @if(user_akses2('penduduk',Session()->get('level'))->view ?? 0 =='1' OR user_akses2('dusun',Session()->get('level'))->view ?? 0 =='1')
                 <li class="menu">
@@ -44,17 +45,47 @@
                     </ul>
                 </li>
             @endif
+            
+           
 
-            @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1')
+            @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('config',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('slider',Session()->get('level'))->view ?? 0 =='1')
+
                 <li class="menu">
-                    <a href="{{ route('desa.index') }}" data-active="{{ set_true('desa.index') }}" aria-expanded="false" class="dropdown-toggle">
+
+                    <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             <span> Profile Desa</span>
                         </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
                     </a>
+
+                    <ul class="collapse submenu list-unstyled {{ set_show('desa.index') }} {{ set_show('configuration.index') }} {{ set_show('slider.index') }} {{ set_show('slider.create') }} {{ set_show('slider.edit') }}" id="profile" data-parent="#accordionExample">
+
+                        @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1')    
+                        <li class="{{ set_active('desa.index') }}">
+                            <a href="{{ route('desa.index') }}"> Kelola Profile </a>
+                        </li>
+                        @endif
+                        
+                        @if(user_akses2('config',Session()->get('level'))->update ?? 0 =='1')  
+                        <li class="{{ set_active('configuration.index') }}">
+                            <a href="{{ route('configuration.index') }}"> Kelolah Config </a>
+                        </li>
+                        @endif         
+                        @if(user_akses2('slider',Session()->get('level'))->view ?? 0 =='1')  
+                        <li class="{{ set_active('slider.index') }} {{ set_active('slider.create') }} {{ set_active('slider.edit') }}">
+                            <a href="{{ route('slider.index') }}"> Kelolah Slider </a>
+                        </li>
+                        @endif         
+
+                    </ul>
                 </li>
             @endif
+
 
 
             @if(user_akses2('user',Session()->get('level'))->view ?? 0 =='1' OR user_akses2('roles',Session()->get('level'))->view ?? 0 =='1')

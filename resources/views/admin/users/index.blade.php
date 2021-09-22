@@ -1,3 +1,5 @@
+@if(user_akses2('user',Session()->get('level'))->view ?? 0 =='1')
+
 @extends('admin.layout.base')
 
 @section('head-title')
@@ -27,7 +29,11 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Level</th>
+
+                        @if(user_akses2('user',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('user',Session()->get('level'))->delete ?? 0 =='1')
                         <th class="no-content dt-no-sorting text-center">Actions</th>
+                        @endif
+
                     </tr>
                 </thead>
                 <tbody>
@@ -47,12 +53,19 @@
                             <form onsubmit="return confirm('Are you sure ?');"
                                 action="{{ route('user.destroy', $s->id) }}"
                                 method="POST">
+
+                                @if(user_akses2('user',Session()->get('level'))->update ?? 0 =='1')
                                 <a href="{{ route('user.edit', Crypt::encryptString($s->id)) }}" title="Edit" class="btn btn-primary btn-sm">
                                     <i class="far fa-edit"></i>
                                 </a>
+                                @endif
+
+                                @if(user_akses2('user',Session()->get('level'))->delete ?? 0 =='1')
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete"><i
                                         class="far fa-trash-alt"></i>
                                 </button>
+                                @endif
+                                
                                 @method('delete') 
                                 @csrf() 
                             </form>
@@ -102,3 +115,5 @@
     });
 </script>
 @endpush
+
+@endif

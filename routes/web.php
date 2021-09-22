@@ -4,15 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VisiController;
+use App\Http\Controllers\GrafikController;
+use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\Admin\DesaController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DusunController;
 use App\Http\Controllers\ProfileDesaController;
+use App\Http\Controllers\Admin\ConfigController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\KarangTarunaController;
 use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DetailDusunController;
-use App\Http\Controllers\KarangTarunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,10 @@ Route::post('login/check', [AuthController::class, 'check'])->name('check');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('admin-panel')->group(function () {
+
+    
+    // CKeditor Upload
+    Route::post('/ckeditor/upload', [CkeditorController::class, 'upload'])->name('upload');
 
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -57,6 +65,10 @@ Route::prefix('admin-panel')->group(function () {
     Route::resource('detailDusun', DetailDusunController::class)->except('create','edit');
     
     Route::resource('penduduk', PendudukController::class);
+
+    Route::resource('configuration', ConfigController::class)->shallow()->only(['index', 'update']);
+
+    Route::resource('slider', SliderController::class);
 });
 
 // home frontend
@@ -66,3 +78,6 @@ Route::prefix('admin-panel')->group(function () {
  Route::get('/profil/wilayah-desa', [ProfileDesaController::class, 'index'])->name('wilayah');
  Route::get('/karang-taruna', [KarangTarunaController::class, 'index'])->name('karang.taruna');
 
+
+ Route::get('/statistik-penduduk', [GrafikController::class, 'index'])->name('statistik-penduduk');
+ Route::get('/statistik-penduduk/show', [GrafikController::class, 'show'])->name('statistik-penduduk.show');

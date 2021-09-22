@@ -18,13 +18,24 @@
         @method('PUT')
         @csrf
 
+        <div class="card shadow mt-2" >
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Profil Desa</h3>
+                        <p>Kelola Informasi Profil Desa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
+
             <div class="col-xl-8 col-lg-6 col-md-7 col-sm-12  layout-top-spacing">
 
                 <div class="layout-spacing ">
                     <div class="widget-content widget-content-area">
-                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Informasi Profil Desa</h3>
-                        <hr>
+                       
                         <div class="form-group my-3">
                             <label for="namadesa">Nama Desa</label>
                             <input id="nama_desa" type="text" name="nama_desa"
@@ -69,7 +80,7 @@
                             @enderror
                         </div>
         
-                        <div class="form-group my-3">
+                        {{-- <div class="form-group my-3">
                             <label for="namakepaladesa">Nama Kepala Desa</label>
                             <input id="nama_kepala_desa" type="text" name="nama_kepala_desa"
                                 class="form-control @error('nama_kepala_desa') is-invalid @enderror"
@@ -85,6 +96,16 @@
                             <label for="alamat">Alamat Kepala Desa</label>
                                 <textarea name="alamat_kepala_desa" id="alamat_kepala_desa" class="form-control @error('alamat_kepala_desa') is-invalid @enderror"  rows="3">{{ $desa->alamat_kepala_desa }}</textarea>
                             @error('alamat_kepala_desa')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div> --}}
+
+                        <div class="form-group my-3">
+                            <label for="sejarah">Serajah Desa</label>
+                            <textarea name="sejarah" id="kontenku" class="form-control @error('sejarah') is-invalid @enderror">{{ $desa->sejarah }}</textarea>
+                            @error('sejarah')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -130,6 +151,7 @@
 @push('css')
 <link href="{{ asset('admin/assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/jquery.fancybox.css') }}">
+<script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
 @endpush
 
 @push('js-external')
@@ -154,6 +176,19 @@
           $("#imgInp").change(function () {
               readURL(this);
           });
+
+          $(function () {
+            $("#kontenku").each(function() {
+                $(this).removeAttr("id");
+                $(this).attr("id", "kontenku");
+                CKEDITOR.replace('kontenku', {
+                    'extraPlugins': 'imgbrowse', 
+                    'filebrowserImageBrowseUrl': '{{ asset('admin/ckeditor/plugins/imgbrowse/imgbrowse.html') }}',
+                    'filebrowserImageUploadUrl': '{{ route('upload', ['_token' => csrf_token() ])}}',
+                });
+
+            });
+        });
     </script>
 @endpush
 
