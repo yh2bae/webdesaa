@@ -1,4 +1,4 @@
-@if(user_akses2('kategori',Session()->get('level'))->input ?? 0 =='1')
+@if(user_akses2('kategori_berita',Session()->get('level'))->input ?? 0 =='1')
 
 @extends('admin.layout.base')
 

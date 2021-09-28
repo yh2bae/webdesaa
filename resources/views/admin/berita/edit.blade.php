@@ -1,4 +1,4 @@
-@if(user_akses2('kategori',Session()->get('level'))->input ?? 0 =='1')
+@if(user_akses2('berita',Session()->get('level'))->input ?? 0 =='1')
 
 @extends('admin.layout.base')
 
@@ -135,13 +135,7 @@
 
 
 @push('css')
-<link href="{{ asset('admin/assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/jquery.fancybox.css') }}">
-@endpush
-
-@push('js-external')
-<script src="{{ asset('admin/plugins/dropify/dropify.min.js') }}"></script>
-<script src="{{ asset('admin/assets/js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
 @endpush
 
 @push('js-external')
@@ -152,7 +146,7 @@
             $(this).attr("id", "kontenku");
             CKEDITOR.replace('kontenku', {
                 'extraPlugins': 'imgbrowse', 
-                'filebrowserImageBrowseUrl': '{{ asset('vendor/ckeditor/plugins/imgbrowse/imgbrowse.html') }}',
+                'filebrowserImageBrowseUrl': '{{ asset('admin/ckeditor/plugins/imgbrowse/imgbrowse.html') }}',
                 'filebrowserImageUploadUrl': '{{ route('upload', ['_token' => csrf_token() ])}}',
             });
 

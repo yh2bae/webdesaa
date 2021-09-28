@@ -1,4 +1,4 @@
-@if(user_akses2('kategori',Session()->get('level'))->view ?? 0 =='1')
+@if(user_akses2('kategori_berita',Session()->get('level'))->view ?? 0 =='1')
 
 @extends('admin.layout.base')
 
@@ -25,7 +25,7 @@
                     <div class="col-lg-6 col-md-6">
                         
                         
-                        @if(user_akses2('kategori',Session()->get('level'))->input ?? 0 =='1')
+                        @if(user_akses2('kategori_berita',Session()->get('level'))->input ?? 0 =='1')
                         <a href="{{ route('kategori.create') }}" class="btn btn-primary float-right mt-2">+ Tambah Kategori Berita</a>  
                         @endif   
                     </div>
@@ -40,7 +40,7 @@
                         <th class="no-content dt-no-sorting">No.</th>
                         <th>Nama Kategori Berita</th>
 
-                        @if(user_akses2('kategori',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kategori',Session()->get('level'))->delete ?? 0 =='1')
+                        @if(user_akses2('kategori_berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kategori_berita',Session()->get('level'))->delete ?? 0 =='1')
                         <th class="no-content dt-no-sorting text-center">Actions</th>
                         @endif
                     </tr>
@@ -54,19 +54,19 @@
                         <td>{{ $i }}</td>
                         <td>{{ $k->kategori_berita }}</td>
 
-                        @if(user_akses2('kategori',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kategori',Session()->get('level'))->delete ?? 0 =='1')
+                        @if(user_akses2('kategori_berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kategori_berita',Session()->get('level'))->delete ?? 0 =='1')
                         <td class="text-center">
                             <form onsubmit="return confirm('Apa kamu yakin ingin menghapus kategori berita {{ $k->kategori_berita }} ?');"
                                 action="{{ route('kategori.destroy', $k->id) }}"
                                 method="POST">
 
-                                @if(user_akses2('kategori',Session()->get('level'))->update ?? 0 =='1')
+                                @if(user_akses2('kategori_berita',Session()->get('level'))->update ?? 0 =='1')
                                 <a href="{{ route('kategori.edit', $k->id) }}" title="Edit" class="btn btn-primary btn-sm">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 @endif
                                 
-                                @if(user_akses2('kategori',Session()->get('level'))->delete ?? 0 =='1')
+                                @if(user_akses2('kategori_berita',Session()->get('level'))->delete ?? 0 =='1')
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete"><i
                                         class="far fa-trash-alt"></i>
                                 </button>

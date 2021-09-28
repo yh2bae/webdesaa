@@ -60,8 +60,15 @@ class ArtikelController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'kategori_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'writer' => 'required'
+        ],[
+            'title.required' => 'Judul wajib diisi',
+            'description.required' => 'Isi Artikel wajib diisi',
+            'kategori_id.required' => 'Kategori wajib dipilih',
+            'image.required' => 'Image wajib diisi.',
+            'writer.required' => 'Penulis wajib diisi.'
         ]);
 
         if ($request->hasFile('image')) {
@@ -129,9 +136,16 @@ class ArtikelController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'kategori_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'writer' => 'required'
+        ],[
+            'title.required' => 'Judul wajib diisi',
+            'kategori_id.required' => 'Kategori wajib dipilih',
+            'description.required' => 'Isi Artikel wajib diisi',
+            'writer.required' => 'Penulis wajib diisi.'
         ]);
+
 
         
         if ($request->hasFile('image')) {

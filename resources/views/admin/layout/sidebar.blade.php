@@ -51,6 +51,52 @@
                     </ul>
                 </li>
             @endif
+
+            @if(user_akses2('berita',Session()->get('level'))->view ?? 0 =='1' OR user_akses2('kategori_berita',Session()->get('level'))->view ?? 0 =='1')
+            <li class="menu">
+                <a href="#berita" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-map">
+                            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                            <line x1="8" y1="2" x2="8" y2="18"></line>
+                            <line x1="16" y1="6" x2="16" y2="22"></line>
+                        </svg>
+                        <span> Berita</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <ul class="collapse submenu list-unstyled {{ set_show('artikel.index') }} {{ set_show('artikel.create') }} {{ set_show('artikel.edit') }}  {{ set_show('kategori.index') }} {{ set_show('kategori.create') }} {{ set_show('kategori.edit') }}"
+                    id="berita" data-parent="#accordionExample">
+
+                    @if(user_akses2('kategori_berita',Session()->get('level'))->view ?? 0 =='1')
+                    <li
+                        class="{{ set_active('kategori.index') }} {{ set_active('kategori.create') }} {{ set_active('kategori.edit') }}">
+                        <a href="{{ route('kategori.index') }}">Kategori Berita </a>
+                    </li>
+                    @endif
+
+                    @if(user_akses2('berita',Session()->get('level'))->view ?? 0 =='1')
+                    <li
+                        class="{{ set_active('artikel.index') }} {{ set_active('artikel.create') }} {{ set_active('artikel.edit') }}">
+                        <a href="{{ route('artikel.index') }}">Kelola Berita </a>
+                    </li>
+                    @endif
+
+                    
+
+                </ul>
+            </li>
+            @endif
+
             
            
 

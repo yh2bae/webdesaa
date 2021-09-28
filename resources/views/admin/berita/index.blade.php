@@ -40,7 +40,6 @@
                         <th>Judul Berita</th>
                         <th>Slug</th>
                         <th>Kategori Berita</th>
-                        <th>Isi Berita</th>
                         <th>Image</th>
                         <th>Penulis</th>
                         <th>Publish</th>
@@ -61,7 +60,6 @@
                         <td>{{ $b->title }}</td>
                         <td>{{ $b->slug }}</td>
                         <td>{{ $b->kategori->kategori_berita }}</td>
-                        <td>{{ $b->description }}</td>
                         <td class="text-center"><img src="{{ asset('upload/berita/'. $b->image) }}" class="rounded" width="250px"  alt="image"></td>
                         <td>{{ $b->writer }}</td>
                         <td>{{ $b->publish }}</td>
