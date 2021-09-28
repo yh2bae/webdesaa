@@ -28,7 +28,7 @@
                         </div>
                     </a>
 
-                    <ul class="collapse submenu list-unstyled {{ set_show('dusun.index') }} {{ set_show('dusun.create') }} {{ set_show('dusun.edit') }} {{ set_show('penduduk.index') }} {{ set_show('penduduk.create') }} {{ set_show('penduduk.edit') }}" id="kelola" data-parent="#accordionExample">
+                    <ul class="collapse submenu list-unstyled {{ set_show('dusun.index') }} {{ set_show('dusun.create') }} {{ set_show('dusun.edit') }} {{ set_show('penduduk.index') }} {{ set_show('penduduk.create') }} {{ set_show('penduduk.edit') }} @if (Request::segment(2) == 'anggaran-realisasi' || Request::segment(2) == 'tambah-anggaran-realisasi') show @endif" id="kelola" data-parent="#accordionExample">
 
                         @if(user_akses2('penduduk',Session()->get('level'))->view ?? 0 =='1')    
                         <li class="{{ set_active('penduduk.index') }} {{ set_active('penduduk.create') }} {{ set_active('penduduk.edit') }}">
@@ -40,7 +40,13 @@
                         <li class="{{ set_active('dusun.index') }} {{ set_active('dusun.create') }} {{ set_active('dusun.edit') }}">
                             <a href="{{ route('dusun.index') }}"> Kelolah Dusun </a>
                         </li>
-                        @endif         
+                        @endif   
+                        
+                        @if(user_akses2('anggaran',Session()->get('level'))->view ?? 0 =='1')
+                        <li class="@if (Request::segment(2) == 'anggaran-realisasi' || Request::segment(2) == 'tambah-anggaran-realisasi') active @endif">
+                            <a href="{{ url('admin-panel/anggaran-realisasi?jenis=pendapatan&tahun='.date('Y')) }}"> Kelolah APBDes </a>
+                        </li>
+                        @endif
 
                     </ul>
                 </li>

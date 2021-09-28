@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnggaranRealisasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -69,6 +70,14 @@ Route::prefix('admin-panel')->group(function () {
     Route::resource('configuration', ConfigController::class)->shallow()->only(['index', 'update']);
 
     Route::resource('slider', SliderController::class);
+
+    Route::resource('anggaran-realisasi', AnggaranRealisasiController::class)->except('create','show');
+    // Route::get('/anggaran-realisasi/{anggaran_realisasi}', function (){return abort(404);});
+
+
+    Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
+    Route::get('/detail-jenis-anggaran/{id}', [AnggaranRealisasiController::class, 'show'])->name('detail-jenis-anggaran.show');
+    Route::get('/tambah-anggaran-realisasi', [AnggaranRealisasiController::class, 'create'])->name('anggaran-realisasi.create');
 });
 
 // home frontend
@@ -81,3 +90,4 @@ Route::prefix('admin-panel')->group(function () {
 
  Route::get('/statistik-penduduk', [GrafikController::class, 'index'])->name('statistik-penduduk');
  Route::get('/statistik-penduduk/show', [GrafikController::class, 'show'])->name('statistik-penduduk.show');
+ Route::get('/anggaran-realisasi-cart', [AnggaranRealisasiController::class, 'cart'])->name('anggaran-realisasi.cart');
