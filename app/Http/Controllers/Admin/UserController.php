@@ -53,7 +53,7 @@ class UserController extends Controller
 			'password' => 'required',
             'email'    => 'required|email',
             'level'    => 'required',
-            'avatar'   => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'avatar'   => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($request->hasFile('avatar')) {
@@ -97,7 +97,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name'     => 'required',
-			'username' => 'required|unique:users',
+			'username' => 'required',
             'email'    => 'required|email',
             'level'    => 'required',
             'avatar'   => 'file|image|mimes:jpeg,png,jpg|max:2048',
@@ -137,7 +137,7 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('user.index')->with(['success' => 'User Berhasil diedit']);
+        return redirect()->back()->with(['success' => 'User Berhasil diedit']);
 
     }
 

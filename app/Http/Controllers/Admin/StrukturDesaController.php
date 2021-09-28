@@ -171,6 +171,7 @@ class StrukturDesaController extends Controller
             'image' =>$struktur['image']
         ]);
 
+        
         return redirect()->route('struktur.index')->with(['success' => 'Data Struktur Desa Berhasil ditambah']);
     }
 

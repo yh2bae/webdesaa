@@ -14,6 +14,7 @@ class CreateStruktursTable extends Migration
     public function up()
     {
         Schema::create('strukturs', function (Blueprint $table) {
+        
             $table->id();
             $table->string('name');
             $table->string('position');

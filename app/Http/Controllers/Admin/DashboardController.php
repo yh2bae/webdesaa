@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Desa;
+use App\Models\Penduduk;
 use App\Models\Users;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class DashboardController extends Controller
         }
 
         $desa = Desa::all()->first();
+        $totalPenduduk = Penduduk::all();
 
-        return view('admin.dashboard.index', compact('desa'));
+        return view('admin.dashboard.index', compact('desa', 'totalPenduduk'));
     }
 }

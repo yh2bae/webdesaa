@@ -17,4 +17,5 @@ class Kategori extends Model
     {
         return $this->hasMany(Artikel::class);
     }
+    
 }

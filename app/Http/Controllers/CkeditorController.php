@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CkeditorController extends Controller
 {
     public function upload(Request $request)
     {
+        if(Session()->get('username')=="") {
+            return redirect()->route('login')->with(['error' => 'Mohon maaf, Anda belum login']);
+        }
+
         if($request->hasFile('upload')) {
             $originName = $request->file('upload')->getClientOriginalName();
             $fileName = pathinfo($originName, PATHINFO_FILENAME);

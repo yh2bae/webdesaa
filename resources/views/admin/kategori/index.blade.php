@@ -24,6 +24,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         
+                        
                         @if(user_akses2('kategori',Session()->get('level'))->input ?? 0 =='1')
                         <a href="{{ route('kategori.create') }}" class="btn btn-primary float-right mt-2">+ Tambah Kategori Berita</a>  
                         @endif   

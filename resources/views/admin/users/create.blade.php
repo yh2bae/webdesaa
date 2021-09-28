@@ -56,7 +56,7 @@
         
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input id="password" type="password" name="password" value="{{ old('password') }}"
+                                <input id="password" type="password" name="password"
                                     class="form-control @error('password') is-invalid @enderror">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                                 </div>
                                 <input type="file" id="imgInp" name="avatar"
                                     class="form-control-file mt-4 @error('avatar') is-invalid @enderror"
-                                    accept="avatar/*">
+                                    accept="image/*">
                                 @error('avatar')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -49,7 +49,7 @@
                         $id_modul = $m->id_modul;
 
 
-                        $id_ubah_saja = array("3");
+                        $id_ubah_saja = array("3", "6");
                         $id_view_delete = array("xx");
                         $id_view_saja = array("13","20","26");
                         $id_full_previlage = array("2");	

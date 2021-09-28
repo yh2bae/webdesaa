@@ -71,6 +71,7 @@
                             <form onsubmit="return confirm('Apa kamu yakin ingin menghapus  berita {{ $b->title }} ?');"
                                 action="{{ route('artikel.destroy', $b->id) }}"
                                 method="POST">
+                                
 
                                 @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1')
                                 <a href="{{ route('artikel.edit', $b->id) }}" title="Edit" class="btn btn-primary btn-sm">

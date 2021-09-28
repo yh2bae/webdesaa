@@ -50,6 +50,8 @@ class KategoriBeritaController extends Controller
         return redirect()->route('kategori.index', $kategori)->with(['success' => 'Kategori Berita Berhasil dibuat']);
     }
 
+    
+
     public function edit(Kategori $kategori)
     {
         if(Session()->get('username')=="") {

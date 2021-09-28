@@ -264,6 +264,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         {{-- End status --}}
 
                         {{--  image --}}

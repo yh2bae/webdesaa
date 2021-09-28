@@ -133,6 +133,7 @@ class ArtikelController extends Controller
             'writer' => 'required'
         ]);
 
+        
         if ($request->hasFile('image')) {
             $img = $request->file('image');
             $artikel['image'] = time().'-'. $img->getClientOriginalName();

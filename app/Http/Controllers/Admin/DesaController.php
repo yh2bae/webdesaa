@@ -23,8 +23,9 @@ class DesaController extends Controller
             'nama_kecamatan' => 'required',
             'nama_kabupaten' => 'required',
             'alamat' => 'required',
-            'nama_kepala_desa' => 'required',
-            'alamat_kepala_desa' => 'required',
+            'sejarah' => 'required',
+            // 'nama_kepala_desa' => 'required',
+            // 'alamat_kepala_desa' => 'required',
 
         ]);
 
@@ -43,8 +44,9 @@ class DesaController extends Controller
             'nama_kecamatan' => $request->nama_kecamatan,
             'nama_kabupaten' => $request->nama_kabupaten,
             'alamat' => $request->alamat,
-            'nama_kepala_desa' => $request->nama_kepala_desa,
-            'alamat_kepala_desa' => $request->alamat_kepala_desa,
+            'sejarah' => $request->sejarah,
+            // 'nama_kepala_desa' => $request->nama_kepala_desa,
+            // 'alamat_kepala_desa' => $request->alamat_kepala_desa,
             'logo' => $desa['logo'],
         ]);
 

@@ -20,4 +20,5 @@ class Struktur extends Model
     {
         return $this->belongsTo(Agama::class);
     }
+    
 }

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
     <link href="{{ asset('admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('admin/plugins/font-icons/fontawesome/css/regular.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/font-icons/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/plugins/font-icons/fontawesome/css/fontawesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/plugins/sweetalerts/sweetalert.css') }}">
     <!-- END GLOBAL MANDATORY STYLES -->
