@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AnggaranRealisasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -15,9 +14,13 @@ use App\Http\Controllers\ProfileDesaController;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\KarangTarunaController;
+use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DetailDusunController;
+use App\Http\Controllers\Admin\StrukturDesaController;
+use App\Http\Controllers\Admin\KategoriBeritaController;
+use App\Http\Controllers\Admin\AnggaranRealisasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +36,7 @@ use App\Http\Controllers\Admin\DetailDusunController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login/check', [AuthController::class, 'check'])->name('check');
@@ -66,7 +70,11 @@ Route::prefix('admin-panel')->group(function () {
     Route::resource('detailDusun', DetailDusunController::class)->except('create','edit');
     
     Route::resource('penduduk', PendudukController::class);
-
+    Route::resource('struktur', StrukturDesaController::class);
+// artikel dan kategori
+    Route::resource('artikel', ArtikelController::class);
+    Route::resource('kategori', KategoriBeritaController::class);
+// end 
     Route::resource('configuration', ConfigController::class)->shallow()->only(['index', 'update']);
 
     Route::resource('slider', SliderController::class);

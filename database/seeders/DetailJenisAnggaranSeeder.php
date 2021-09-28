@@ -160,45 +160,45 @@ class DetailJenisAnggaranSeeder extends Seeder
         //     'updated_at' => date("Y-m-d H:i:s"),
         // ],
 
-        // [
-        //     'id'    => 511,
-        //     'jenis_anggaran_id'    => 5,
-        //     'kelompok_jenis_anggaran_id'    => 51,
-        //     'created_at' => date("Y-m-d H:i:s"),
-        //     'updated_at' => date("Y-m-d H:i:s"),
-        // ],
+        [
+            'id'    => 511,
+            'jenis_anggaran_id'    => 5,
+            'kelompok_jenis_anggaran_id'    => 51,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ],
 
-        // [
-        //     'id'    => 521,
-        //     'jenis_anggaran_id'    => 5,
-        //     'kelompok_jenis_anggaran_id'    => 52,
-        //     'created_at' => date("Y-m-d H:i:s"),
-        //     'updated_at' => date("Y-m-d H:i:s"),
-        // ],
+        [
+            'id'    => 521,
+            'jenis_anggaran_id'    => 5,
+            'kelompok_jenis_anggaran_id'    => 52,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ],
 
-        // [
-        //     'id'    => 531,
-        //     'jenis_anggaran_id'    => 5,
-        //     'kelompok_jenis_anggaran_id'    => 53,
-        //     'created_at' => date("Y-m-d H:i:s"),
-        //     'updated_at' => date("Y-m-d H:i:s"),
-        // ],
+        [
+            'id'    => 531,
+            'jenis_anggaran_id'    => 5,
+            'kelompok_jenis_anggaran_id'    => 53,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ],
 
-        // [
-        //     'id'    => 541,
-        //     'jenis_anggaran_id'    => 5,
-        //     'kelompok_jenis_anggaran_id'    => 54,
-        //     'created_at' => date("Y-m-d H:i:s"),
-        //     'updated_at' => date("Y-m-d H:i:s"),
-        // ],
+        [
+            'id'    => 541,
+            'jenis_anggaran_id'    => 5,
+            'kelompok_jenis_anggaran_id'    => 54,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ],
 
-        // [
-        //     'id'    => 551,
-        //     'jenis_anggaran_id'    => 5,
-        //     'kelompok_jenis_anggaran_id'    => 55,
-        //     'created_at' => date("Y-m-d H:i:s"),
-        //     'updated_at' => date("Y-m-d H:i:s"),
-        // ],
+        [
+            'id'    => 551,
+            'jenis_anggaran_id'    => 5,
+            'kelompok_jenis_anggaran_id'    => 55,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ],
         // [
         //     'id'    => 611,
         //     'jenis_anggaran_id'    => 6,
