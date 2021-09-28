@@ -189,7 +189,10 @@ class AnggaranRealisasiController extends Controller
             'nilai_realisasi'           => ['required','numeric','min:0','max:'.$request->nilai_anggaran],
             'keterangan_lainnya'        => ['nullable']
         ],[
-            'detail_jenis_anggaran_id.required' => 'detail jenis anggaran wajib diisi'
+            'jenis_anggaran.required' => 'Jenis anggaran wajib dipilih',
+            'detail_jenis_anggaran_id.required' => 'Detail jenis anggaran wajib diisi',
+            'nilai_anggaran.required' => 'Nilai anggaran wajib diisi.',
+            'nilai_realisasi.required' => 'Nilai realisasi wajib diisi.'
         ]);
 
         $jenis = '';
@@ -208,6 +211,37 @@ class AnggaranRealisasiController extends Controller
     public function show($id)
     {
         return response()->json(DetailJenisAnggaran::where('jenis_anggaran_id', $id)->get());
+    }
+
+    public function edit(AnggaranRealisasi $anggaran_realisasi)
+    {
+        if(Session()->get('username')=="") {
+            return redirect()->route('login')->with(['error' => 'Mohon maaf, Anda belum login']);
+        }
+
+        $desa = Desa::all()->first();
+        $jenis_anggaran = JenisAnggaran::all();
+        return view('admin.anggaran.edit', compact('desa','anggaran_realisasi','jenis_anggaran'));
+    }
+
+    public function update(Request $request, AnggaranRealisasi $anggaran_realisasi)
+    {
+        $data = $request->validate([
+            'tahun'                     => ['required','numeric','min:1900'],
+            'jenis_anggaran'            => ['required'],
+            'detail_jenis_anggaran_id'  => ['required'],
+            'nilai_anggaran'            => ['required','numeric','min:0'],
+            'nilai_realisasi'           => ['required','numeric','min:0','max:'.$request->nilai_anggaran],
+            'keterangan_lainnya'        => ['nullable']
+        ],[
+            'jenis_anggaran.required' => 'Jenis anggaran wajib dipilih',
+            'detail_jenis_anggaran_id.required' => 'Detail jenis anggaran wajib diisi',
+            'nilai_anggaran.required' => 'Nilai anggaran wajib diisi.',
+            'nilai_realisasi.required' => 'Nilai realisasi wajib diisi.'
+        ]);
+
+        $anggaran_realisasi->update($data);
+        return redirect()->back()->with(['success' => 'Anggaran Realisasi APBDes berhasil diperbarui']);
     }
 
     public function kelompokJenisAnggaran(KelompokJenisAnggaran $kelompokJenisAnggaran)
