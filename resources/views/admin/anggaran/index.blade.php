@@ -58,7 +58,7 @@
                     <form id="form-tahun" action="{{ URL::current()}}" method="GET">
                         <input type="hidden" name="jenis" value="{{ request('jenis') ? request('jenis') : "pendapatan"}}">
                         Tahun: <input type="number" name="tahun" id="tahun" class="form-control" value="{{ request('tahun') ? request('tahun') : date('Y') }}" style="width: 100px; height:40px">
-                        <img id="loading-tahun" src="{{ asset(Storage::url('loading.gif')) }}" alt="Loading" height="20px" style="display: none">
+                        <img id="loading-tahun" src="{{ asset('admin/loading.gif') }}" alt="Loading" height="20px" style="display: none">
                     </form>
                 </div>
 
