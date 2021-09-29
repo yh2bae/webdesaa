@@ -3,12 +3,12 @@
 @extends('admin.layout.base')
 
 @section('head-title')
-<title>Desa {{ $desa->nama_desa }} - Tambah Kategori Berita</title>
+<title>Desa {{ $desa->nama_desa }} - Tambah Berita</title>
 @endsection
 
 @section('breadcrumb')
-<a class="breadcrumb-item " href="{{ route('artikel.index') }}"><span>Kategori Berita</span></a>
-<li class="breadcrumb-item active" aria-current="page"><span>Tambah Kategori Berita</span></li>
+<a class="breadcrumb-item " href="{{ route('artikel.index') }}"><span>Berita</span></a>
+<li class="breadcrumb-item active" aria-current="page"><span>Tambah Berita</span></li>
 @endsection
 
 
@@ -20,7 +20,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Tambah Dusun
+                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Tambah Berita
                         </h3>
                         <p>Kelola Berita</p>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="col-md-12 col-lg-12">
 
                             <div class="form-group">
-                                <label for="title">JUDUL ARTIKEL</label>
+                                <label for="title">Judul Artikel</label>
                                 <input id="title" type="text" name="title"
                                     class="form-control @error('title') is-invalid @enderror"
                                     value="{{ old('title') }}">
@@ -53,7 +53,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="product_id">CATEEGORY ARTIKEL</label>
+                                <label for="product_id">Kategori Artikel</label>
                                 <select class="placeholder js-states form-control" name="kategori_id" id="kategori_id">
                                     <option>Choose Category...</option>
                                     @foreach ($kategori as $item)
@@ -62,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="description">ISI ARTIKEL</label>
+                                <label for="description">Isi Artikel</label>
                                 <textarea id="kontenku" name="description"
                                     class="form-control @error('description') is-invalid @enderror"
                                     rows="4">{{ old('description') }}</textarea>
@@ -76,7 +76,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <label for="image">IMAGE</label>
+                                        <label for="image">Image</label>
                                         <div>
                                             <img id="imageview"
                                                 src="https://image.flaticon.com/icons/png/512/2/2409.png"
@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="writer">TANGGAL PUBLISH</label>
+                                <label for="writer">Tanggal Publish</label>
                                 <input id="tanggal_publish" type="date" name="tanggal_publish" class="form-control"
                                     value="{{ old('tanggal_publish') }}">
                             </div>

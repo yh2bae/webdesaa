@@ -115,7 +115,7 @@
                         </div>
                     </a>
 
-                    <ul class="collapse submenu list-unstyled {{ set_show('desa.index') }} {{ set_show('configuration.index') }} {{ set_show('slider.index') }} {{ set_show('slider.create') }} {{ set_show('slider.edit') }}" id="profile" data-parent="#accordionExample">
+                    <ul class="collapse submenu list-unstyled {{ set_show('desa.index') }} {{ set_show('configuration.index') }} {{ set_show('slider.index') }} {{ set_show('slider.create') }} {{ set_show('slider.edit') }} {{ set_show('struktur.index') }} {{ set_show('struktur.create') }} {{ set_show('struktur.edit') }}" id="profile" data-parent="#accordionExample">
 
                         @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1')    
                         <li class="{{ set_active('desa.index') }}">
@@ -132,7 +132,14 @@
                         <li class="{{ set_active('slider.index') }} {{ set_active('slider.create') }} {{ set_active('slider.edit') }}">
                             <a href="{{ route('slider.index') }}"> Kelolah Slider </a>
                         </li>
-                        @endif         
+                        @endif
+                        
+                        @if(user_akses2('struktur',Session()->get('level'))->view ?? 0 =='1')
+                        <li
+                            class="{{ set_active('struktur.index') }} {{ set_active('struktur.create') }} {{ set_active('struktur.edit') }}">
+                            <a href="{{ route('struktur.index') }}"> Struktur Desa </a>
+                        </li>
+                        @endif
 
                     </ul>
                 </li>
