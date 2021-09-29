@@ -25,7 +25,7 @@
                         <p>Kelola Struktur Desa</p>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <a href="{{ route('penduduk.index') }}" class="btn btn-success float-right mt-2">
+                        <a href="{{ route('struktur.index') }}" class="btn btn-success float-right mt-2">
                             Kembali
                         </a>
                     </div>

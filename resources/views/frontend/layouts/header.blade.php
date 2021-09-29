@@ -28,9 +28,6 @@
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah Desa</a></li>
-                          <li>
-                              <a class="dropdown-item" href="{{ route('wilayah') }}">Profil Wilayah Desa</a>
-                          </li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">

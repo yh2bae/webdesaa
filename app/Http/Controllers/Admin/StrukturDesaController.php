@@ -183,7 +183,7 @@ class StrukturDesaController extends Controller
      */
     public function destroy(Struktur $struktur)
     {
-         if(Session()->get('username')=="") {
+        if(Session()->get('username')=="") {
             return redirect()->route('login')->with(['error' => 'Mohon maaf, Anda belum login']);
         }
 

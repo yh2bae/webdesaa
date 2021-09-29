@@ -1,13 +1,14 @@
-@if(user_akses2('berita',Session()->get('level'))->view ?? 0 =='1')
+
+@if(user_akses2('kepala-desa',Session()->get('level'))->view ?? 0 =='1')
 
 @extends('admin.layout.base')
 
 @section('head-title')
-<title>Desa {{ $desa->nama_desa }} -  Berita</title>
+<title>Desa {{ $desa->nama_desa }} - Kepala Desa Desa</title>
 @endsection
 
 @section('breadcrumb')
-<li class="breadcrumb-item active" aria-current="page"><span> Berita</span></li>
+<li class="breadcrumb-item active" aria-current="page"><span>Kepala Desa</span></li>
 @endsection
 
 
@@ -15,17 +16,17 @@
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
 
-        <div class="card shadow mt-2" >
+        <div class="card shadow mt-3" >
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Berita</h3>
-                        <p>Kelola  Berita</p>
+                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Kepala Desa</h3>
+                        <p>Kelola Kepala Desa</p>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         
-                        @if(user_akses2('berita',Session()->get('level'))->input ?? 0 =='1')
-                        <a href="{{ route('artikel.create') }}" class="btn btn-primary float-right mt-2">+ Tambah Berita</a>  
+                        @if(user_akses2('struktur',Session()->get('level'))->input ?? 0 =='1')
+                        <a href="{{ route('kepala-desa.create') }}" class="btn btn-primary float-right mt-2">+ Tambah Kepala Desa</a>  
                         @endif   
                     </div>
                 </div>
@@ -37,70 +38,65 @@
                 <thead>
                     <tr>
                         <th class="no-content dt-no-sorting">No.</th>
-                        <th>Judul Berita</th>
-                        <th>Slug</th>
-                        <th>Kategori Berita</th>
-                        <th>Image</th>
-                        <th>Penulis</th>
-                        <th>Publish</th>
-                        <th>Tanggal Publish</th>
 
-                        @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('berita
-                        ',Session()->get('level'))->delete ?? 0 =='1')
+                        
+                        <th>Nama</th>
+                        <th>Masa Jabatan</th>
+                        <th>Keterangan</th>
+
+                        @if(user_akses2('kepala-desa',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kepala-desa',Session()->get('level'))->delete ?? 0 =='1')
                         <th class="no-content dt-no-sorting text-center">Actions</th>
                         @endif
+
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $i=1
-                    @endphp
-                    @foreach ($artikel as $b)
+                @php
+                $i=1
+                @endphp
+                @foreach ($kepala_desa as $item)
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $b->title }}</td>
-                        <td>{{ $b->slug }}</td>
-                        <td>{{ $b->kategori->kategori_berita }}</td>
-                        <td class="text-center"><img src="{{ asset('upload/berita/'. $b->image) }}" class="rounded" width="250px"  alt="image"></td>
-                        <td>{{ $b->writer }}</td>
-                        <td>{{ $b->publish }}</td>
-                        <td>{{ $b->tanggal_publish }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->masa_jabatan }}</td>
+                        <td>{{ $item->keterangan }}</td>
 
-                        @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('berita',Session()->get('level'))->delete ?? 0 =='1')
+                        @if(user_akses2('kepala-desa',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('kepala-desa',Session()->get('level'))->delete ?? 0 =='1')
                         <td class="text-center">
-                            <form onsubmit="return confirm('Apa kamu yakin ingin menghapus  berita {{ $b->title }} ?');"
-                                action="{{ route('artikel.destroy', $b->id) }}"
-                                method="POST">
-                                
+                            <form onsubmit="return confirm('Perhatian!!! Menghapus penduduk akan menghapus semua data yang dimilikinya');"
+                                action="{{ route('kepala-desa.destroy', $item->id) }}" method="POST">
 
-                                @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1')
-                                <a href="{{ route('artikel.edit', $b->id) }}" title="Edit" class="btn btn-primary btn-sm">
+                                @if(user_akses2('kepala-desa',Session()->get('level'))->update ?? 0 =='1')
+                                <a href="{{ route('kepala-desa.edit', $item->id) }}" title="Edit"
+                                    class="btn btn-primary btn-sm">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 @endif
-                                
-                                @if(user_akses2('berita',Session()->get('level'))->delete ?? 0 =='1')
+
+                                @if(user_akses2('kepala-desa',Session()->get('level'))->delete ?? 0 =='1')
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete"><i
                                         class="far fa-trash-alt"></i>
                                 </button>
                                 @endif
 
-                                @method('delete') 
+                                @method('delete')
                                 @csrf()
                             </form>
                         </td>
                         @endif
                     </tr>
-                    @php
-                        $i++
-                    @endphp
-                    @endforeach
+                @php
+                $i++
+                @endphp
+                @endforeach
                 </tbody>
                
+                
             </table>
         </div>
     </div>
 </div>
+
 @endsection
 
 

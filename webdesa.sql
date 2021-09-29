@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Sep 2021 pada 09.49
+-- Waktu pembuatan: 29 Sep 2021 pada 08.06
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -379,6 +379,21 @@ INSERT INTO `kelompok_jenis_anggaran` (`id`, `nama`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kepala_desas`
+--
+
+CREATE TABLE `kepala_desas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `masa_jabatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -417,7 +432,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2021_09_23_082514_create_detail_jenis_anggarans_table', 10),
 (26, '2021_09_23_082602_create_anggaran_realisasis_table', 11),
 (27, '2021_09_28_131623_create_category_news_table', 12),
-(28, '2021_09_28_131806_create_news_table', 12);
+(28, '2021_09_28_131806_create_news_table', 12),
+(29, '2021_09_21_022726_create_strukturs_table', 13),
+(30, '2021_09_29_122410_create_kepala_desas_table', 13);
 
 -- --------------------------------------------------------
 
@@ -446,7 +463,9 @@ INSERT INTO `moduls` (`id_modul`, `name_modul`, `link`, `status`) VALUES
 (7, 'Slider', 'slider', 'Y'),
 (8, 'Anggaran', 'anggaran', 'Y'),
 (9, 'Berita', 'berita', 'Y'),
-(10, 'Kategori Berita', 'kategori_berita', 'Y');
+(10, 'Kategori Berita', 'kategori_berita', 'Y'),
+(11, 'Kelolah Struktur Desa', 'struktur', 'Y'),
+(12, 'Kelolah Kepala Desa', 'kepala-desa', 'Y');
 
 -- --------------------------------------------------------
 
@@ -787,7 +806,9 @@ INSERT INTO `user_moduls` (`id_umod`, `id_role`, `id_modul`, `view`, `input`, `u
 (9, 1, 7, 1, 1, 1, 1, 0, NULL, NULL),
 (10, 1, 8, 1, 1, 1, 1, 0, NULL, NULL),
 (11, 1, 9, 1, 1, 1, 1, 0, NULL, NULL),
-(12, 1, 10, 1, 1, 1, 1, 0, NULL, NULL);
+(12, 1, 10, 1, 1, 1, 1, 0, NULL, NULL),
+(13, 1, 11, 1, 1, 1, 1, 0, NULL, NULL),
+(14, 1, 12, 1, 1, 1, 1, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -881,6 +902,12 @@ ALTER TABLE `kategori_berita`
 -- Indeks untuk tabel `kelompok_jenis_anggaran`
 --
 ALTER TABLE `kelompok_jenis_anggaran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `kepala_desas`
+--
+ALTER TABLE `kepala_desas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1075,16 +1102,22 @@ ALTER TABLE `kelompok_jenis_anggaran`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
+-- AUTO_INCREMENT untuk tabel `kepala_desas`
+--
+ALTER TABLE `kepala_desas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `moduls`
 --
 ALTER TABLE `moduls`
-  MODIFY `id_modul` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_modul` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `news`
@@ -1156,7 +1189,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `user_moduls`
 --
 ALTER TABLE `user_moduls`
-  MODIFY `id_umod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_umod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

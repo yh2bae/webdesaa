@@ -120,9 +120,6 @@
             </li>
             @endif
 
-
-
-
             @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1' OR
             user_akses2('config',Session()->get('level'))->update ?? 0 =='1' OR
             user_akses2('slider',Session()->get('level'))->view ?? 0 =='1')
