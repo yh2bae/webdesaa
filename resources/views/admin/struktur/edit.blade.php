@@ -7,8 +7,8 @@
 @endsection
 
 @section('breadcrumb')
-<a class="breadcrumb-item " href="{{ route('dusun.index') }}"><span>Struktu Desa</span></a>
-<li class="breadcrumb-item active" aria-current="page"><span>Tambah Struktu Desa</span></li>
+<a class="breadcrumb-item " href="{{ route('dusun.index') }}"><span>Struktur Desa</span></a>
+<li class="breadcrumb-item active" aria-current="page"><span>Tambah Struktur Desa</span></li>
 @endsection
 
 
@@ -20,9 +20,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Tambah Penduduk
+                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Edit Struktur
                         </h3>
-                        <p>Kelola Struktu Desa</p>
+                        <p>Kelola Struktur Desa</p>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <a href="{{ route('penduduk.index') }}" class="btn btn-success float-right mt-2">

@@ -183,8 +183,6 @@
             </li>
             @endif
 
-
-
             @if(user_akses2('user',Session()->get('level'))->view ?? 0 =='1' OR
             user_akses2('roles',Session()->get('level'))->view ?? 0 =='1')
             <li class="menu">

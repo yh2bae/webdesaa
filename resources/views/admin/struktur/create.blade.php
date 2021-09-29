@@ -20,8 +20,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Tambah Struktur
-                            Desa</h3>
+                        <h3 style="font-size: 21px; font-weight:600; margin:6px 0px 0 0; color:#3b3f5c;">Tambah Struktur Desa
+                        </h3>
                         <p>Kelola Struktur Desa</p>
                     </div>
                     <div class="col-lg-6 col-md-6">
