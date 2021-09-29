@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\DetailDusunController;
 use App\Http\Controllers\Admin\StrukturDesaController;
 use App\Http\Controllers\Admin\KategoriBeritaController;
 use App\Http\Controllers\Admin\AnggaranRealisasiController;
+use App\Http\Controllers\Admin\KepalaDesaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,8 @@ Route::prefix('admin-panel')->group(function () {
     Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
     Route::get('/detail-jenis-anggaran/{id}', [AnggaranRealisasiController::class, 'show'])->name('detail-jenis-anggaran.show');
     Route::get('/tambah-anggaran-realisasi', [AnggaranRealisasiController::class, 'create'])->name('anggaran-realisasi.create');
+
+    Route::resource('/kepala-desa', KepalaDesaController::class);
 });
 
 // home frontend

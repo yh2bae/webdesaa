@@ -100,7 +100,7 @@
             
            
 
-            @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('config',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('slider',Session()->get('level'))->view ?? 0 =='1')
+            @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('config',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('slider',Session()->get('level'))->view ?? 0 =='1' OR user_akses2('kepala-desa',Session()->get('level'))->view ?? 0 =='1' OR user_akses2('struktur',Session()->get('level'))->view ?? 0 =='1')
 
                 <li class="menu">
 
@@ -120,6 +120,12 @@
                         @if(user_akses2('desa',Session()->get('level'))->update ?? 0 =='1')    
                         <li class="{{ set_active('desa.index') }}">
                             <a href="{{ route('desa.index') }}"> Kelola Profile </a>
+                        </li>
+                        @endif
+
+                        @if(user_akses2('kepala-desa',Session()->get('level'))->update ?? 0 =='1')    
+                        <li class="{{ set_active('kepala-desa.index') }}">
+                            <a href="{{ route('kepala-desa.index') }}"> Data Kepala Desa </a>
                         </li>
                         @endif
                         
