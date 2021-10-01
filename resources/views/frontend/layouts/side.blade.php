@@ -29,6 +29,7 @@
                                 {!! $config->google_maps !!}
                             </div>
                         </div>
+                        
                         <!--/.Card content-->
                     </div>
                     <!--Grid column-->

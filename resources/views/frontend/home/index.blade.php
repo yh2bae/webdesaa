@@ -23,6 +23,7 @@
                 <a href="#" class="btn btn-primary btn-sm pull-right">More ... </a>
             </div>
 
+            
         </div>
     </div>
 </article>

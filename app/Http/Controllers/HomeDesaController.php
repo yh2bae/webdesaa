@@ -13,6 +13,7 @@ class HomeDesaController extends Controller
 {
     public function index()
     {
+        
        $desa = Desa::all()->first();
        $slider = Slider::all();
        $artikel = Artikel::orderBy('id' , 'ASC')->limit('5')->get();

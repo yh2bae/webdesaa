@@ -7,3 +7,4 @@
     <p>{!! $config->description !!}</p>
 </section>
 @endsection
+

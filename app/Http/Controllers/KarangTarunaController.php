@@ -12,6 +12,7 @@ class KarangTarunaController extends Controller
 {
     public function index()
     {
+        
         $config = Configuration::all()->first();
         $desa = Desa::all()->first();
         $category = Kategori::all();
