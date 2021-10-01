@@ -20,7 +20,6 @@
     <title>Desa</title>
 </head>
 
-
 <body>
     @include('frontend.layouts.header')
     <!-- body -->

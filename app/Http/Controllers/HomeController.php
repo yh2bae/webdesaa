@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Desa;
 use Illuminate\Http\Request;
 
-class VisiController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
         $desa = Desa::all()->first();
-        return view('frontend.visi&misi.index', [
+        return view('frontend.home.index', [
             'desa' => $desa
         ]);
     }
