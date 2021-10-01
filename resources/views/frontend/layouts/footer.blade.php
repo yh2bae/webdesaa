@@ -14,12 +14,8 @@
                  <div class="col-md-3 col-lg-3 col-xl-3  mb-4">
                      <!-- Content -->
                      <h6 class="text-uppercase fw-bold mb-4">
-                         <i class="fa fa-diamond" aria-hidden="true"></i>Desa Sukamakmur
+                         <i class="fa fa-diamond" aria-hidden="true"></i>{{ $desa->nama_desa }}
                      </h6>
-                     <p>
-                         Here you can use rows and columns to organize your footer content. Lorem ipsum
-                         dolor sit amet, consectetur adipisicing elit.
-                     </p>
                  </div>
                  <!-- Grid column -->
                  <!-- Grid column -->
@@ -27,6 +23,7 @@
                  </div>
                  <!-- Grid column -->
 
+                 
 
                  <!-- Grid column -->
                  <div class="col-md-3 col-lg-3 col-xl-3 mb-md-0 mb-4">
@@ -34,12 +31,12 @@
                      <h6 class="text-uppercase fw-bold mb-4">
                          Contact
                      </h6>
-                     <p><i class="fa fa-home" aria-hidden="true"></i></i> New York, NY 10012, US</p>
+                     <p><i class="fa fa-home" aria-hidden="true"></i></i> {{ $desa->alamat }}</p>
                      <p>
                          <i class="fa fa-envelope" aria-hidden="true"></i>
-                         info@example.com
+                        {{ $config->email }}
                      </p>
-                     <p><i class="fa fa-phone" aria-hidden="true"></i> + 01 234 567 88</p>
+                     <p><i class="fa fa-phone" aria-hidden="true"></i>{{ $config->whatsapp }}</p>
                  </div>
                  <!-- Grid column -->
              </div>
