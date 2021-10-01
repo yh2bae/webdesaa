@@ -43,7 +43,6 @@
                         <th>Image</th>
                         <th>Penulis</th>
                         <th>Publish</th>
-                        <th>Tanggal Publish</th>
 
                         @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('berita
                         ',Session()->get('level'))->delete ?? 0 =='1')
@@ -64,7 +63,6 @@
                         <td class="text-center"><img src="{{ asset('upload/berita/'. $b->image) }}" class="rounded" width="250px"  alt="image"></td>
                         <td>{{ $b->writer }}</td>
                         <td>{{ $b->publish }}</td>
-                        <td>{{ $b->tanggal_publish }}</td>
 
                         @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('berita',Session()->get('level'))->delete ?? 0 =='1')
                         <td class="text-center">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VisiController;
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\CkeditorController;
@@ -21,7 +22,6 @@ use App\Http\Controllers\Admin\StrukturDesaController;
 use App\Http\Controllers\Admin\KategoriBeritaController;
 use App\Http\Controllers\Admin\AnggaranRealisasiController;
 use App\Http\Controllers\Admin\KepalaDesaController;
-use App\Http\Controllers\HomeDesaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,9 +92,10 @@ Route::prefix('admin-panel')->group(function () {
 });
 
 // home frontend
- Route::get('/', [HomeDesaController::class, 'index'])->name('home');
+ Route::get('/', [HomeController::class, 'index'])->name('home');
  Route::get('/pemerintahan/visi&misi', [VisiController::class, 'index'])->name('pemerintahan');
  Route::get('/profil/sejarah-desa', [ProfileDesaController::class, 'sejarahDesa'])->name('sejarah');
+ Route::get('/profil/wilayah-desa', [ProfileDesaController::class, 'index'])->name('wilayah');
  Route::get('/karang-taruna', [KarangTarunaController::class, 'index'])->name('karang.taruna');
 
 
