@@ -58,11 +58,11 @@ class StrukturDesaController extends Controller
             'address' => 'required',
             'agama_id' => 'required',
             'pendidikan_id' => 'required',
-            'nomor_sk' => 'required',
-            'tanggal_sk' => 'required',
-            'masa_jabatan' => 'required',
+            // 'nomor_sk' => 'required',
+            // 'tanggal_sk' => 'required',
+            // 'masa_jabatan' => 'required',
             'status' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($request->hasFile('image')) {
@@ -71,7 +71,7 @@ class StrukturDesaController extends Controller
 
             $filePath = public_path('/upload/strukturdesa');
             $img->move($filePath, $struktur['image']);
-        } 
+        }
 
          Struktur::create([
             'name' => $request->name,
@@ -139,9 +139,9 @@ class StrukturDesaController extends Controller
             'address' => 'required',
             'agama_id' => 'required',
             'pendidikan_id' => 'required',
-            'nomor_sk' => 'required',
-            'tanggal_sk' => 'required',
-            'masa_jabatan' => 'required',
+            // 'nomor_sk' => 'required',
+            // 'tanggal_sk' => 'required',
+            // 'masa_jabatan' => 'required',
             'status' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);

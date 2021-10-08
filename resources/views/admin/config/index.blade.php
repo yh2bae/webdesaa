@@ -37,7 +37,7 @@
                 <div class="widget-content widget-content-area">
 
                     <div class="form-group my-3">
-                        <label for="description">Visi Misi</label>
+                        <label for="description">Deskripsi Desa</label>
                         <textarea name="description" id="kontenku" class="form-control @error('description') is-invalid @enderror">{{ $config->description }}</textarea>
                         @error('description')
                         <span class="invalid-feedback" role="alert">

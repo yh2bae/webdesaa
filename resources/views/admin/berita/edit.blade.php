@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="kategori_id">Kategori Artikel</label>
-                                 <select class="placeholder js-states form-control" name="kategori_id" id="kategori_id">
+                                 <select class="placeholder js-states form-control @error('kategori_id') is-invalid @enderror" name="kategori_id" id="kategori_id">
                                     @foreach ($kategori as $item)
                                     @if ($item->id == $artikel->kategori_id)
                                     <option value={{ $item->id }} selected='selected'> {{ $item->kategori_berita }} </option>
@@ -64,6 +64,11 @@
                                     @endif
                                     @endforeach
                                 </select>
+                                @error('kategori_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             
                             <div class="form-group">
@@ -101,8 +106,10 @@
                             <div class="form-group">
                                 <label for="publish">Publish Artikel</label>
                                 <select class="placeholder js-states form-control" name="publish">
-                                    <option value="Ya">Ya</option>
-                                    <option value="Tidak">Tidak</option>
+                                    {{-- <option value="Ya">Ya</option>
+                                    <option value="Tidak">Tidak</option> --}}
+                                    <option value="1" {{ old('publish', $artikel->publish) == 1 ? 'selected="true"' : ''  }}>Ya</option>
+                                    <option value="0" {{ old('publish', $artikel->publish) == 0 ? 'selected="true"' : ''  }}>Tidak</option>
                                 </select>
                             </div>
 
@@ -165,7 +172,7 @@
               }
           }
 
-          $("#imageInput").change(function () {
+          $("#imgInp").change(function () {
               readURL(this);
     });
     

@@ -13,7 +13,6 @@ use App\Http\Controllers\Admin\DusunController;
 use App\Http\Controllers\ProfileDesaController;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\KarangTarunaController;
 use App\Http\Controllers\Admin\ArtikelController;
 use App\Http\Controllers\Admin\PendudukController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -22,6 +21,8 @@ use App\Http\Controllers\Admin\StrukturDesaController;
 use App\Http\Controllers\Admin\KategoriBeritaController;
 use App\Http\Controllers\Admin\AnggaranRealisasiController;
 use App\Http\Controllers\Admin\KepalaDesaController;
+use App\Http\Controllers\ApbdesController;
+use App\Http\Controllers\PemerintahanDesa;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,8 +83,6 @@ Route::prefix('admin-panel')->group(function () {
 
     Route::resource('anggaran-realisasi', AnggaranRealisasiController::class)->except('create','show');
     // Route::get('/anggaran-realisasi/{anggaran_realisasi}', function (){return abort(404);});
-
-
     Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
     Route::get('/detail-jenis-anggaran/{id}', [AnggaranRealisasiController::class, 'show'])->name('detail-jenis-anggaran.show');
     Route::get('/tambah-anggaran-realisasi', [AnggaranRealisasiController::class, 'create'])->name('anggaran-realisasi.create');
@@ -93,10 +92,14 @@ Route::prefix('admin-panel')->group(function () {
 
 // home frontend
  Route::get('/', [HomeController::class, 'index'])->name('home');
- Route::get('/pemerintahan/visi&misi', [VisiController::class, 'index'])->name('pemerintahan');
+ Route::get('/berita/detail/{slug}', [HomeController::class, 'detailArtikel'])->name('detail.artikel');
  Route::get('/profil/sejarah-desa', [ProfileDesaController::class, 'sejarahDesa'])->name('sejarah');
- Route::get('/profil/wilayah-desa', [ProfileDesaController::class, 'index'])->name('wilayah');
- Route::get('/karang-taruna', [KarangTarunaController::class, 'index'])->name('karang.taruna');
+ Route::get('/profil/visi-&-misi', [ProfileDesaController::class, 'visiMisi'])->name('visimisi');
+ Route::get('/laporan-apbdes', [ApbdesController::class, 'index'])->name('laporan-apbdes');
+ Route::get('/pemerintahan-desa', [PemerintahanDesa::class, 'index'])->name('pemerintahan.index');
+ Route::get('/pemerintahan-desa/detail/{name}', [PemerintahanDesa::class, 'detailPemerintah'])->name('pemerintahan.detail');
+
+//  Route::get('/profil/wilayah-desa', [ProfileDesaController::class, 'index'])->name('wilayah');
 
 
  Route::get('/statistik-penduduk', [GrafikController::class, 'index'])->name('statistik-penduduk');

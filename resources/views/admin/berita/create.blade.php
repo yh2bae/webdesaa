@@ -54,12 +54,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="product_id">Kategori Artikel</label>
-                                <select class="placeholder js-states form-control" name="kategori_id" id="kategori_id">
-                                    <option>Choose Category...</option>
+                                <select class="placeholder js-states form-control  @error('kategori_id') is-invalid @enderror" name="kategori_id" id="kategori_id">
+                                    <option value="">Pilih Kategori Berita...</option>
                                     @foreach ($kategori as $item)
-                                    <option value=" {{ $item->id }} "> {{ $item->kategori_berita }} </option>
+                                    <option value="{{ $item->id }}"> {{ $item->kategori_berita }} </option>
                                     @endforeach
                                 </select>
+                                @error('kategori_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Isi Artikel</label>
@@ -78,7 +83,7 @@
                                     <div class="form-group">
                                         <label for="image">Image</label>
                                         <div>
-                                            <img id="imageview"
+                                            <img id="imageView"
                                                 src="https://image.flaticon.com/icons/png/512/2/2409.png"
                                                 alt="your image" width="100px" class="rounded">
                                         </div>
@@ -97,10 +102,15 @@
 
                             <div class="form-group">
                                 <label for="publish">Publish Artikel</label>
-                                <select class="placeholder js-states form-control" name="publish">
-                                    <option value="Ya">Ya</option>
-                                    <option value="Tidak">Tidak</option>
+                                <select class="placeholder js-states form-control @error('publish') is-invalid @enderror" name="publish">
+                                    <option value="1">Ya</option>
+                                    <option value="0">Tidak</option>
                                 </select>
+                                @error('publish')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -162,7 +172,7 @@
               }
           }
 
-          $("#imageInput").change(function () {
+          $("#imgInp").change(function () {
               readURL(this);
     });
     

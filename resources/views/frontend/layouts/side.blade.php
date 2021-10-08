@@ -6,7 +6,7 @@
                 <div class="card shadow-sm my-3 bg-body rounded">
                     <div class="card-body">
                         <h3 class="card-title">Layanan Surat Desa</h3>
-                        <a href="#">
+                        <a href="https://api.whatsapp.com/send/?phone=62{{ $config->whatsapp }}" target="_blank">
                             <img src="{{ asset('frontend/assets/wa.jpg') }}" class="rounded d-block wa-image" alt="wa">
                         </a>
                     </div>
@@ -16,7 +16,8 @@
 
         <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">
-                <h4 class="card-title">New Village</h4>
+                <h4 class="card-title">Wilayah Desa</h4>
+                <hr>
                 <!--Grid row-->
                 <div class="row">
                     <!--Grid column-->
@@ -26,9 +27,7 @@
                             <!--Google map-->
                             <div id="map-container-google-8" class="z-depth-1-half map-container-5"
                                 style="height: 300px">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=Barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" style="border: 0" allowfullscreen></iframe>
+                                {!! $config->google_maps !!}
                             </div>
                         </div>
                         <!--/.Card content-->
@@ -39,7 +38,7 @@
             </div>
         </div>
 
-        <div class="card shadow-sm my-3 bg-body rounded">
+        {{-- <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">
                 <h4 class="card-title">Aparatur Desa</h4>
                 <!--Grid row-->
@@ -55,14 +54,26 @@
                 </div>
                 <!--Grid row-->
             </div>
-        </div>
+        </div> --}}
 
         <!-- facebook -->
         <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">
                 <h4 class="card-title">Info Media Sosial</h4>
-                <a href="#">
-                    <img src="{{ asset('frontend/assets/fb.png') }}" class="rounded  d-block fb-image" alt="fb">
+                <a href="{{ $config->facebook }}" target="_blank">
+                    <i class="fab fa-facebook mx-1" style="font-size: 36px"></i>
+                </a>
+
+                <a href="{{ $config->twitter }}" target="_blank">
+                    <i class="fab fa-twitter mx-1" style="font-size: 36px"></i>
+                </a>
+
+                <a href="{{ $config->instagram }}" target="_blank">
+                    <i class="fab fa-instagram mx-1" style="font-size: 36px; color:orange;"></i>
+                </a>
+
+                <a href="{{ $config->youtube }}" target="_blank">
+                    <i class="fab fa-youtube mx-1" style="font-size: 36px; color: red;"></i>
                 </a>
             </div>
         </div>
@@ -85,24 +96,23 @@
         <!-- Artikel -->
         <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">
-                <h4 class="card-title">Arsip Artikel</h4>
+                <h4 class="card-title">Kategori Barita</h4>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Gotong Royong</a>
-                    <a href="#" class="list-group-item list-group-item-action">Peraturan Desa</a>
-                    <a href="#" class="list-group-item list-group-item-action">Pembinaan Administrasi Desa</a>
-                    <a href="#" class="list-group-item list-group-item-action">Pembagian Sembako</a>
+                    @foreach ($category as $c)  
+                    <a href="#" class="list-group-item list-group-item-action">{{ $c->kategori_berita }}</a>
+                    @endforeach
                 </div>
             </div>
         </div>
 
         <!-- Galeri foto -->
-        <div class="card shadow-sm my-3 bg-body rounded">
+        {{-- <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body galeri-text">
                 <a href="#">
                     <h4 class="card-title ">Galeri Foto</h4>
                 </a>
             </div>
-        </div>
+        </div> --}}
         <!-- statistik pengunjung -->
         <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">

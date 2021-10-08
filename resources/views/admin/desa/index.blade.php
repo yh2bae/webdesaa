@@ -111,6 +111,16 @@
                             </span>
                             @enderror
                         </div>
+
+                        <div class="form-group my-3">
+                            <label for="visi_misi">Visi & Misi</label>
+                            <textarea name="visi_misi" id="kontenku1" class="form-control @error('visi_misi') is-invalid @enderror">{{ $desa->visi_misi }}</textarea>
+                            @error('visi_misi')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
         
                     </div>
                 </div>
@@ -188,6 +198,18 @@
                 });
 
             });
+
+            $("#kontenku1").each(function() {
+                $(this).removeAttr("id");
+                $(this).attr("id", "kontenku1");
+                CKEDITOR.replace('kontenku1', {
+                    'extraPlugins': 'imgbrowse', 
+                    'filebrowserImageBrowseUrl': '{{ asset('admin/ckeditor/plugins/imgbrowse/imgbrowse.html') }}',
+                    'filebrowserImageUploadUrl': '{{ route('upload', ['_token' => csrf_token() ])}}',
+                });
+
+            });
+            
         });
     </script>
 @endpush

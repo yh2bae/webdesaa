@@ -97,7 +97,14 @@
                         <td>{{ $item->nomor_sk }}</td>
                         <td>{{ $item->tanggal_sk }}</td>
                         <td>{{ $item->masa_jabatan }} Tahun</td>
-                        <td class="text-center"><img src="{{ asset('upload/strukturdesa/'. $item->image) }}" class="rounded" width="250px"  alt="image"></td>
+                        <td class="text-center">
+                            @if ($item->image == '')
+                                <img src="{{ asset('upload/strukturdesa/noavatar.png') }}" class="rounded" width="50px"  alt="image">
+                                @else
+                                <img src="{{ asset('upload/strukturdesa/'. $item->image) }}" class="rounded" width="50px"  alt="image">
+                            @endif
+                           
+                        </td>
                         <td>{{ $item->status == 1 ? "aktif" : "tidak aktif" }}</td>
                     </tr>
                 @php

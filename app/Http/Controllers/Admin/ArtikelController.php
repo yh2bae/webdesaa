@@ -62,6 +62,7 @@ class ArtikelController extends Controller
             'description' => 'required',
             'kategori_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'publish' => 'required',
             'writer' => 'required'
         ],[
             'title.required' => 'Judul wajib diisi',
@@ -138,7 +139,8 @@ class ArtikelController extends Controller
             'description' => 'required',
             'kategori_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'writer' => 'required'
+            'writer' => 'required',
+            'publish' => 'required'
         ],[
             'title.required' => 'Judul wajib diisi',
             'kategori_id.required' => 'Kategori wajib dipilih',

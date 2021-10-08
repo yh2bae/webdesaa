@@ -62,7 +62,8 @@
                         <td>{{ $b->kategori->kategori_berita }}</td>
                         <td class="text-center"><img src="{{ asset('upload/berita/'. $b->image) }}" class="rounded" width="250px"  alt="image"></td>
                         <td>{{ $b->writer }}</td>
-                        <td>{{ $b->publish }}</td>
+                        {{-- <td>{{ $b->publish }}</td> --}}
+                        <td>{{ $b->publish == 1 ? "Ya" : "Tidak" }}</td>
 
                         @if(user_akses2('berita',Session()->get('level'))->update ?? 0 =='1' OR user_akses2('berita',Session()->get('level'))->delete ?? 0 =='1')
                         <td class="text-center">

@@ -24,6 +24,7 @@ class DesaController extends Controller
             'nama_kabupaten' => 'required',
             'alamat' => 'required',
             'sejarah' => 'required',
+            'visi_misi' => 'required',
             // 'nama_kepala_desa' => 'required',
             // 'alamat_kepala_desa' => 'required',
 
@@ -45,6 +46,7 @@ class DesaController extends Controller
             'nama_kabupaten' => $request->nama_kabupaten,
             'alamat' => $request->alamat,
             'sejarah' => $request->sejarah,
+            'visi_misi' => $request->visi_misi,
             // 'nama_kepala_desa' => $request->nama_kepala_desa,
             // 'alamat_kepala_desa' => $request->alamat_kepala_desa,
             'logo' => $desa['logo'],
