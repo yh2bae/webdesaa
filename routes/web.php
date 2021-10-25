@@ -22,7 +22,10 @@ use App\Http\Controllers\Admin\KategoriBeritaController;
 use App\Http\Controllers\Admin\AnggaranRealisasiController;
 use App\Http\Controllers\Admin\KepalaDesaController;
 use App\Http\Controllers\ApbdesController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PemerintahanDesa;
+use App\Http\Controllers\PetaDesaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,14 +95,25 @@ Route::prefix('admin-panel')->group(function () {
 
 // home frontend
  Route::get('/', [HomeController::class, 'index'])->name('home');
- Route::get('/berita/detail/{slug}', [HomeController::class, 'detailArtikel'])->name('detail.artikel');
  Route::get('/profil/sejarah-desa', [ProfileDesaController::class, 'sejarahDesa'])->name('sejarah');
  Route::get('/profil/visi-&-misi', [ProfileDesaController::class, 'visiMisi'])->name('visimisi');
  Route::get('/laporan-apbdes', [ApbdesController::class, 'index'])->name('laporan-apbdes');
  Route::get('/pemerintahan-desa', [PemerintahanDesa::class, 'index'])->name('pemerintahan.index');
- Route::get('/pemerintahan-desa/detail/{name}', [PemerintahanDesa::class, 'detailPemerintah'])->name('pemerintahan.detail');
+ Route::get('/berita', [NewsController::class, 'index'])->name('berita.index');
+ Route::get('/berita/detail/{slug}', [NewsController::class, 'detailBerita'])->name('detail.berita');
+ Route::get('/berita-keyword', [NewsController::class, 'searchBerita'])->name('berita.search');
 
-//  Route::get('/profil/wilayah-desa', [ProfileDesaController::class, 'index'])->name('wilayah');
+
+ Route::get('/pemerintahan-desa/detail/{name}', [PemerintahanDesa::class, 'detailPemerintah'])->name('pemerintahan.detail');
+ Route::get('/data-agama', [DataController::class, 'dataAgama'])->name('data.agama');
+ Route::get('/data-pendidikan', [DataController::class, 'dataPendidikan'])->name('data.pendidikan');
+ Route::get('/data-pekerjaan', [DataController::class, 'dataPekerjaan'])->name('data.pekerjaan');
+ Route::get('/data-usia', [DataController::class, 'dataUmur'])->name('data.umur');
+ Route::get('/data-perkawinan', [DataController::class, 'dataPerkawinan'])->name('data.perkawinan');
+ Route::get('/data-golongan-darah', [DataController::class, 'dataDarah'])->name('data.darah');
+
+ Route::get('/peta-desa', [PetaDesaController::class, 'index'])->name('peta.index');
+
 
 
  Route::get('/statistik-penduduk', [GrafikController::class, 'index'])->name('statistik-penduduk');

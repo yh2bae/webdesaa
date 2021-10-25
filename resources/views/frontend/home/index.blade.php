@@ -20,7 +20,7 @@
             <p style="text-align: justify">{!! Str::limit($a->description, 500, $end='...')  !!}</p>
 
             <div>
-                <a href="{{ route('detail.artikel', $a->slug) }}" class="btn btn-primary btn-sm pull-right">Lihat Detail ... </a>
+                <a href="{{ route('detail.berita', $a->slug) }}" class="btn btn-primary btn-sm pull-right">Lihat Detail ... </a>
             </div>
 
             

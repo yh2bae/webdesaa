@@ -272,8 +272,13 @@
                             <div class="form-group">
                                 <label for="image">IMAGE</label>
                                 <div>
-                                    <img id="imageview" src="{{ asset('upload/strukturdesa/'.$struktur->image) }}"
-                                        alt="your image" width="100px" class="rounded">
+                                    {{-- <img id="imageview" src="{{ asset('upload/strukturdesa/'.$struktur->image) }}"
+                                        alt="your image" width="100px" class="rounded"> --}}
+                                        @if ($struktur->image == '')
+                                        <img src="{{ asset('upload/strukturdesa/noavatar.png') }}" class="rounded" width="100px"  alt="image">
+                                        @else
+                                        <img src="{{ asset('upload/strukturdesa/'. $struktur->image) }}" class="rounded" width="100px"  alt="image">
+                                        @endif
                                 </div>
                                 <input type="file" id="imgInp" name="image"
                                     class="form-control-file mt-4 @error('image') is-invalid @enderror"

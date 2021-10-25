@@ -114,14 +114,14 @@
             </div>
         </div> --}}
         <!-- statistik pengunjung -->
-        <div class="card shadow-sm my-3 bg-body rounded">
+        {{-- <div class="card shadow-sm my-3 bg-body rounded">
             <div class="card-body">
                 <h4 class="card-title">Statistik Pengunjung</h4>
                 <h6>Hari Ini <span class="badge bg-secondary">0029</span></h6>
                 <h6>Kemarin <span class="badge bg-secondary">0064</span></h6>
                 <h6>Jumlah Pengunjung <span class="badge bg-secondary">000012312</span></h6>
             </div>
-        </div>
+        </div> --}}
 
     </div>
     <!-- end side -->

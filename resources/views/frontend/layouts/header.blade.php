@@ -54,7 +54,7 @@
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link {{ set_active('pemerintahan.index') }}" href="{{ route('pemerintahan.index') }}">
+                    <a class="nav-link {{ set_active('pemerintahan.index') }} {{ set_active('pemerintahan.detail') }}" href="{{ route('pemerintahan.index') }}">
                         Pemerintahan Desa
                     </a>
                   </li>
@@ -66,25 +66,19 @@
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li>
-                              <a class="dropdown-item" href="#">Data Wilayah Administratif</a>
+                              <a class="dropdown-item {{ set_active('data.agama') }}" href="{{ route('data.agama') }}">Data Agama</a>
                           </li>
                           <li>
-                              <a class="dropdown-item" href="#">Data Pendidikan dalam KK</a>
+                              <a class="dropdown-item {{ set_active('data.pendidikan') }}" href="{{ route('data.pendidikan') }}">Data Pendidikan</a>
+                          </li>
+                          <li><a class="dropdown-item {{ set_active('data.pekerjaan') }}" href="{{ route('data.pekerjaan') }}">Data Pekerjaan</a></li>
+                          <li>
+                              <a class="dropdown-item {{ set_active('data.darah') }}" href="{{ route('data.darah') }}">Data Golongan Darah</a>
                           </li>
                           <li>
-                              <a class="dropdown-item" href="#">Data Pendidikan Ditempuh</a>
+                              <a class="dropdown-item {{ set_active('data.umur') }}" href="{{ route('data.umur') }}">Data Kelompok Umur</a>
                           </li>
-                          <li><a class="dropdown-item" href="#">Data Pekerjaan</a></li>
-                          <li>
-                              <a class="dropdown-item" href="#">Data Jenis Kelamin</a>
-                          </li>
-                          <li>
-                              <a class="dropdown-item" href="#">Data Golongan Darah</a>
-                          </li>
-                          <li>
-                              <a class="dropdown-item" href="#">Data Kelompok Umur</a>
-                          </li>
-                          <li><a class="dropdown-item" href="#">Data Perkawinan</a></li>
+                          <li><a class="dropdown-item {{ set_active('data.perkawinan') }}" href="{{ route('data.perkawinan') }}">Data Perkawinan</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -93,35 +87,17 @@
                     </a>
                  </li>
                   <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                          SIG
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Lokasi Balai Desa</a></li>
-                          <li><a class="dropdown-item" href="#">Lokasi Pura</a></li>
-                          <li>
-                              <a class="dropdown-item" href="#">Lokasi Rumah Tangga Miskin</a>
-                          </li>
-                      </ul>
-                  </li>
+                    <a class="nav-link {{ set_active('peta.index') }}" href="{{ route('peta.index') }}">
+                        Peta Desa
+                    </a>
+                 </li>
+                  
+                 
                   <li class="nav-item dropdown">
-                      <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Surat Online
-                      </a>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Transparansi Keuangan
-                      </a>
-                  </li>
-                  {{-- <li class="nav-item dropdown">
-                    <a class="nav-link {{ set_active('detail.artikel') }}" href="{{ route('detail.artikel') }}">
+                    <a class="nav-link {{ set_active('berita.index') }} {{ set_active('detail.berita') }}" href="{{ route('berita.index') }}">
                         Berita
                     </a>
-                  </li> --}}
+                  </li>
               </ul>
               {{-- <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

@@ -22,14 +22,4 @@ class HomeController extends Controller
         return view('frontend.home.index', compact('desa', 'slider', 'artikel', 'config', 'category'));
     }
 
-    public function detailArtikel($slug)
-    {
-        $desa = Desa::all()->first();
-        $artikel = Artikel::where('slug', $slug)->firstOrFail();
-        $config = Configuration::all()->first();
-        $category = Kategori::all();
-        $slider = Slider::all();
-        
-        return view('frontend.home.detail', compact('desa', 'slider', 'artikel', 'config', 'category'));
-    }
 }
